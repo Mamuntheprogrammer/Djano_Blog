@@ -4,7 +4,19 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
+
+class PublishedManager(models.Manager):
+	def get_queryset(self):
+		return super(PublishedManager,self).get_queryset().filter(status="Published")
+
+
 class Post(models.Model):
+	""" Post Model"""
+	# custom manager
+	objects = models.Manager()
+	published = PublishedManager()
+
+
 	STATUS_CHOICES = (('draft','Draft'),('published','Published'))
 	title = models.CharField(max_length=250)
 	slug = models.SlugField(max_length=250,unique_for_date='publish')
