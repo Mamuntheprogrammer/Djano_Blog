@@ -9,4 +9,10 @@
 
 {{ post.body | linebreaks }}
 
+<p>
+	<a href="{% url "pygems:post_share" post.id %}">
+		Share the Post 
+	</a>
+</p>
+
 {% endblock%}
