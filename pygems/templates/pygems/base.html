@@ -1,3 +1,4 @@
+{% load pygems_tags %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -13,8 +14,9 @@
 			<h1>I'm from base page </h1>
 		{% endblock %}
 	</div>
-	<div>
+	<div id="sidebar">
 		<h2>from base page</h2>
+		<p>This is My blog I'have written {% total_posts %} posts so far</p>
 	</div>
 </body>
 </html>
