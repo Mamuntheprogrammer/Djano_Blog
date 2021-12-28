@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 from taggit.managers import	TaggableManager
-
+from tinymce import models as tmodels
 
 # Create your models here.
 
@@ -23,7 +23,7 @@ class Post(models.Model):
 	title = models.CharField(max_length=250)
 	slug = models.SlugField(max_length=250,unique_for_date='publish')
 	author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='blog_posts')
-	body = models.TextField(max_length=200)
+	body = tmodels.HTMLField(max_length=2000)
 	publish = models.DateTimeField(default=timezone.now)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
@@ -45,7 +45,7 @@ class Comment(models.Model):
 	post = models.ForeignKey(Post,on_delete=models.CASCADE,related_name='comments')
 	name = models.CharField(max_length=80)
 	email = models.EmailField()
-	body = models.TextField()
+	body = tmodels.HTMLField()
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
 	active = models.BooleanField(default=True)

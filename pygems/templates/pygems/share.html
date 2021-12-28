@@ -4,6 +4,10 @@
 
 
 {% block content %}
+{% include "pygems/navigation.html" %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 col-xl-12">
 
 {% if sent %}
 <h1>Email successfully sent to {{ form.cleaned_data.to }}. </h1>
@@ -20,6 +24,9 @@
 </form>
 {% endif %}
 
+      </div>
+        </div>
+    </div>
 
 
 {% endblock %}

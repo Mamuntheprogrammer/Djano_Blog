@@ -2,6 +2,10 @@
 {% block title %} {{post.title}} {% endblock %}
 
 {% block content %}
+{% include "pygems/navigation.html" %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 col-xl-12">
 <h1>{{post.title}}</h1>
 <p class="date">
 	published {{ post.publish }} by {{ post.author }}
@@ -51,6 +55,9 @@ There is no similar Post yet
 
 {% endif %}
 
+       </div>
+        </div>
+    </div>
 
 
 {% endblock %}

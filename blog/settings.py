@@ -28,6 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+SITE_ID = 1
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,6 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pygems',
     'taggit',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    'tinymce',
+
 ]
 
 MIDDLEWARE = [
